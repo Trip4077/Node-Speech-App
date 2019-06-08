@@ -1,0 +1,16 @@
+{
+  "name": "speech_app",
+  "version": "1.0.0",
+  "description": "An AI Speech Bot with Real Time Communication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bernard Johnson",
+  "license": "ISC",
+  "dependencies": {
+    "apiai": "^4.0.3",
+    "express": "^4.17.1",
+    "socket.io": "^2.2.0"
+  }
+}
