@@ -1,7 +1,11 @@
-const apiai = require('apiai')(process.env.TOKEN || '7b0b706f901e43eb915741eb12c2bcb8');
-
+const apiai = require('apiai')(process.env.TOKEN  || '7b0b706f901e43eb915741eb12c2bcb8');
+console.log(apiai)
 const express = require('express');
 const app = express();
+
+require('dotenv').config()
+
+const APIAI_SESSION_ID = process.env.APIAI_SESSION_ID;
 
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(__dirname + '/public'));
@@ -17,7 +21,7 @@ const io = require('socket.io')(server);
 io.on('connection', socket => {
     socket.on('chat message', text => {
         const apiaiReq = apiai.textRequest(text, {
-            sessionId: process.env.SESSION || request.body.sessionId
+            sessionId: APIAI_SESSION_ID
         });
 
         apiaiReq.on('response', response => {
